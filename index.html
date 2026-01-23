@@ -50,24 +50,57 @@
 
     <div class="container">
         <div class="row">
-            <main class="col-12 col-md-9">
-                <h4 style="margin-bottom:10px;">Mini progetti</h4>
-                In questa pagina sono riportati alcuni progetti fatti nel tempo libero:<br><br>
+            <main class="col-12 col-md-9" style="padding-top:30px">
+                <div style="background: #ead3f5; border-radius: 8px; padding: 10px; display: flex; gap: 20px; align-items: center; box-shadow: 0 0 0 3px white, 0 0 0 6px #ead3f5;">
+                    <div>
+                        <img src="assets/oktobercat.png" style="width: 100px;">
+                    </div>
+                    <div>
+                        <a href="https://github.com/leonardocppn" style="font-weight: bold; font-size: 1rem;">~ Link al profilo github ~</a><br>
+                        Qui<br>
+                        una breve<br>
+                        presentazione.
+                    </div>
+                </div>
+                <h4 style="margin-bottom:0px;">Progetti</h4>
+                Di seguito stanno alcuni progetti fatti nel tempo libero:<br><br>
 
-                <b>Book club tracker</b>[<a href="https://github.com/leonardocppn/book-club-tracker">Info</a>] [<a href="https://leonardocppn.github.io/book-club-tracker/">Demo</a>]<br>
-                Una PWA minimale che consente a un piccolo club di lettura di poter seguire la progressione della lettura di tutti i membri.
-                <br><br>
-                <b>Ricerca stoica</b>[Info] [<a href="https://leonardocppn.github.io/stoic-search/">Demo</a>]<br>
-                Home page del browser minimale con barra di ricerca (DuckDuckGo), barra dei preferiti (dati salvati su LocalStorage) e una citazione diversa per ogni giorno dell'anno di Marco Aurelio per ravvivare l'umore.
-                <br><br>
+                <b>Book club tracker</b> [<a href="https://github.com/leonardocppn/book-club-tracker">Repo</a>] [<a href="https://leonardocppn.github.io/book-club-tracker/">Demo</a>]<br>
+                Una PWA minimale che consente a un piccolo club di lettura di poter seguire la progressione della lettura di tutti i membri.<br>
+                <div class="book-tracker" style="font-size:14px">Mostra di più...</div>
+                <div class="book-descr" style="align-items: center;display: none;gap:20px">
+                    <div style="box-sizing: border-box;">
+                        <img src="imgs/book.png" style="width: 300px;">
+                    </div>
+                    <div style="box-sizing: border-box;text-align:left;">
+                    Piccola PWA costruita per tenere traccia su telefono della progressione di un club di lettura composta da me e alcuni amici. Per non perdere contatto con gli altri e per non dover periodicamente chiedere: "A che punto siete?".<br>
+                    <br>
+                    Frontend scritto in javascript e backend che gira su Cloudflare Workers e storage su Cloudflare KV, manda notifiche su un canale Discord comune per avvisare quando qualcuno supera la soglia di 50-75-90% del libro.<br>
+                    <br>
+                    Minimale, facilmente ampliabile/migliorabile e difficilmente raccomandabile a un gruppo di lettura più ampio a causa della mancanza di autenticazione utente, che permetterebbe a chi vuole falsificare dati altrui di farlo senza problemi.
+                    </div>
+                </div>
+                <br>
+                <b>Ricerca stoica</b> [<a href="https://github.com/leonardocppn/stoic-search">Repo</a>] [<a href="https://leonardocppn.github.io/stoic-search/">Demo</a>]<br>
+                Home page del browser minimale con barra di ricerca (DuckDuckGo), barra dei preferiti (dati salvati su LocalStorage) e una citazione diversa per ogni giorno dell'anno di Marco Aurelio per ravvivare l'umore.<br>
+                <div class="marco" style="font-size:14px">Mostra di più...</div>
+                <div class="aurelio" style="display: none;">
+                    <div style="box-sizing: border-box;">
+                        <img src="imgs/marco.png" style="width: 90%; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);">
+                    </div>
+                    <div style="box-sizing: border-box;text-align:left;">
+                        Usa una semplice funzione calcola il giorno corrente dell'anno (0-365), carica un array di 366 (eventuali bisestili) citazioni di Marco Aurelio, e usa l'operatore modulo per selezionare la citazione corrispondente: ogni giorno mostra una citazione diversa seguendo l'ordine sequenziale dell'array, ricominciando il primo gennaio dell'anno successivo.<br>
+                    </div>
+                </div>
+                <br>
                 <b>Bud-dot</b> [wip]<br>
                 Un giochino con l'API di OpenAI.
                 <br><br>
                 
             </main>
 
-            <aside class="col-12 col-md-3 mt-4 mt-md-0" style="text-align: right; margin-top: 30px !important;">
-                Link ai progetti:<br>
+            <aside class="col-12 col-md-3 mt-4 mt-md-0" style="text-align: right; padding-top:30px">
+                <b>Link ai progetti:</b><br>
                 <nav>
                     <ul class="list-unstyled ps-md-3">
                         <li><a href="https://leonardocppn.github.io/book-club-tracker/">Book club tracker</a></li>
@@ -78,5 +111,23 @@
             </aside>
         </div>
     </div>
+
+    <script>
+        function setupToggle(triggerSelector, contentSelector, displayStyle = 'flex') {
+            document.querySelector(triggerSelector).addEventListener('click', function() {
+                const content = document.querySelector(contentSelector);
+                if (content.style.display === 'none' || content.style.display === '') {
+                    content.style.display = displayStyle;
+                    this.textContent = 'Mostra meno...';
+                } else {
+                    content.style.display = 'none';
+                    this.textContent = 'Mostra di più...';
+                }
+            });
+        }
+
+        setupToggle('.book-tracker', '.book-descr', 'flex');
+        setupToggle('.marco', '.aurelio', 'block');
+    </script>
 </body>
 </html>
