@@ -65,20 +65,40 @@
     <div class="container">
         <div class="row">
             <main class="col-12 col-md-9" style="padding-top:30px">
-                <div style="background: #ead3f5; border-radius: 8px; padding: 10px; display: flex; gap: 20px; align-items: center; box-shadow: 0 0 0 3px white, 0 0 0 6px #ead3f5;">
+                <div style="background: #ead3f5; margin-bottom:30px; border-radius: 8px; padding: 10px; display: flex; gap: 20px; align-items: center; box-shadow: 0 0 0 3px white, 0 0 0 6px #ead3f5;">
                     <div>
                         <img src="assets/oktobercat.png" style="width: 100px;">
                     </div>
                     <div>
                         <a href="https://github.com/leonardocppn" style="font-weight: bold; font-size: 1rem;">~ Link al profilo github ~</a><br>
-                        📍 Toscana | 🐧 Fedora<br>
-                        una breve<br>
-                        presentazione.
+                        📍 Pisa/Firenze | 🐧 Fedora<br>
+                        Di seguito alcuni progetti che spaziano da strumenti pratici a esperimenti con tecnologie vecchie e più nuove:
                     </div>
                 </div>
+                <!--
                 <h4 style="margin-bottom:0px;">Progetti</h4>
                 Di seguito stanno alcuni progetti fatti nel tempo libero:<br><br>
-
+                -->
+                <b>mbsync mcp server</b> [<a href="https://github.com/leonardocppn/mbsync-mcp">Repo</a>]<br>
+                Un server Model Context Protocol (MCP) che consente di sincronizzare ed elaborare localmente la propria casella di posta con l'aiuto di un LLM. Nasce dalle ceneri di un progetto (che potrei riprendere in futuro) per gestire Thunderbird <img src="imgs/tndrb.ico" style="width: 25px; border-radius:10%; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3); vertical-align: middle;"> ed è stato convertito per funzionare con mbsync.<br>
+                <div class="mbsync" style="font-size:14px">Mostra di più...</div>
+                <div class="mcp" style="align-items: center;display: none;gap:20px">
+                    <div style="box-sizing: border-box; text-align: center;">
+                        <img src="imgs/mcp.png" style="width: 100%; max-width: 680px; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);">
+                    </div>
+                    <div style="box-sizing: border-box;text-align:left;">
+                        Le funzionalità principali includono:
+                        <ul style="margin: 5px;">
+                            <li>Lettura email da cartelle Maildir sincronizzate con mbsync.</li>
+                            <li>Ricerca per mittente, oggetto o contenuto.</li>
+                            <li>Filtri per intervallo di date e stato letto/non letto.</li>
+                            <li>Operazioni IMAP: spostare, cancellare, archiviare email.</li>
+                            <li>Cleanup batch: cancellare/archiviare email multiple in un solo comando.</li>
+                            <li>Daily briefing: riepilogo inbox con mittenti principali.</li>
+                        </ul>
+                    </div>
+                </div>
+                <br>
                 <b>Book club tracker</b> [<a href="https://github.com/leonardocppn/book-club-tracker">Repo</a>] [<a href="https://leonardocppn.github.io/book-club-tracker/">Demo</a>]<br>
                 Una PWA minimale che consente a un piccolo club di lettura di poter seguire la progressione della lettura di tutti i membri.<br>
                 <div class="book-tracker" style="font-size:14px">Mostra di più...</div>
@@ -108,7 +128,7 @@
                 </div>
                 <br>
                 <b>Bud-dot</b> [wip]<br>
-                Un giochino con l'API di OpenAI.
+                Un giochino ove interagire con l'API di OpenAI.
                 <br><br>
                 
             </main>
@@ -117,6 +137,7 @@
                 <b>Link ai progetti:</b><br>
                 <nav>
                     <ul class="list-unstyled ps-md-3">
+                        <li><a href="https://github.com/leonardocppn/mbsync-mcp">mbsync mcp</a></li>
                         <li><a href="https://leonardocppn.github.io/book-club-tracker/">Book club tracker</a></li>
                         <li><a href="https://leonardocppn.github.io/stoic-search/">Ricerca stoica</a></li>
                         <li>Bud-dot</li>
@@ -142,6 +163,7 @@
 
         setupToggle('.book-tracker', '.book-descr', 'flex');
         setupToggle('.marco', '.aurelio', 'block');
+        setupToggle('.mbsync', '.mcp', 'block');
     </script>
 </body>
 </html>
