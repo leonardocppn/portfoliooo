@@ -49,7 +49,7 @@
             }
         }
 
-        .book-tracker, .marco, .mbsync {
+        .book-tracker, .marco, .mbsync, .tracker {
             cursor: pointer;
         }
     </style>
@@ -84,7 +84,7 @@
                 Di seguito stanno alcuni progetti fatti nel tempo libero:<br><br>
                 -->
                 <b>mbsync mcp server</b> [<a href="https://github.com/leonardocppn/mbsync-mcp">Repo</a>]<br>
-                Un server Model Context Protocol (MCP) che consente di sincronizzare ed elaborare localmente la propria casella di posta con l'aiuto di un LLM. Nasce dalle ceneri di un progetto (che potrei riprendere in futuro) per gestire Thunderbird <img src="imgs/tndrb.ico" style="width: 25px; border-radius:10%; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3); vertical-align: middle;"> ed è stato convertito per funzionare con mbsync. Attualmente in lavorazione: tools che consentano di fare un'analisi del tipo di traffico in entrata nella casella di posta.<br>
+                Un server Model Context Protocol (MCP) che consente di sincronizzare ed elaborare localmente la propria casella di posta con l'aiuto di un LLM. Nasce dalle ceneri di un progetto (che potrei riprendere in futuro) per gestire Thunderbird <img src="imgs/tndrb.ico" style="width: 25px; border-radius:10%; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3); vertical-align: middle;"> ed è stato convertito per funzionare con mbsync.<br>
                 <div class="mbsync" style="font-size:14px">Mostra di più...</div>
                 <div class="mcp" style="align-items: center;display: none;gap:20px">
                     <div style="box-sizing: border-box; text-align: center;">
@@ -100,6 +100,23 @@
                             <li>Cleanup batch: cancellare/archiviare email multiple in un solo comando.</li>
                             <li>Daily briefing: riepilogo inbox con mittenti principali.</li>
                         </ul>
+                    </div>
+                </div>
+                <br>
+                <b>Tracker delle spese</b> [<a href="https://github.com/leonardocppn/expenses-tracker-pwa">Repo</a>]<br>
+                Una PWA che vuole facilitare l'utente nel monitorare le proprie spese personali, dividendole per tipo (essenziali, di piacere o altro) e categorie (cibo, salute, abbonamenti, trasporti). Così da poter capire, in fasce mensili, quant'è l'ammontare totale o specifico, e visualizzare direttamente quali sono le aree su cui investire maggiori attenzioni per risparmiare.<br>
+                <div class="tracker" style="font-size:14px">Mostra di più...</div>
+                <div class="spese" style="align-items: center;display: none;gap:20px">
+                    <div style="box-sizing: border-box; text-align: center;">
+                        <table>
+                            <tr>
+                                <td><img src="https://raw.githubusercontent.com/leonardocppn/expenses-tracker-pwa/refs/heads/main/screen1.png" width="220px"/></td>
+                                <td><img src="https://raw.githubusercontent.com/leonardocppn/expenses-tracker-pwa/refs/heads/main/screen2.png" width="220px"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="box-sizing: border-box;text-align:left;">
+                        Questo è accompagnato da altri due tracker: uno dell'umore del giorno e delle ore di sonno. Appurato che sonno e umore siano fortemente correlati tra loro, il presente progetto è anche un test personale per capire quanto è evidente un aumento delle spese (di piacere) come risposta involontaria a un certo numero di giorni consecutivi con pessimo umore.<br>                 Facendo personalmente uso di questa PWA (sono attualmente in presa dati!) l'analisi di quest'ultima correlazione sarà valutata/migliorata nel giro di qualche mese, con più dati a disposizione.
                     </div>
                 </div>
                 <br>
@@ -142,6 +159,7 @@
                 <nav>
                     <ul class="list-unstyled ps-md-3">
                         <li><a href="https://github.com/leonardocppn/mbsync-mcp">mbsync mcp</a></li>
+                        <li><a href="https://github.com/leonardocppn/expenses-tracker-pwa">Tracker spese</a></li>
                         <li><a href="https://leonardocppn.github.io/book-club-tracker/">Book club tracker</a></li>
                         <li><a href="https://leonardocppn.github.io/stoic-search/">Ricerca stoica</a></li>
                         <li>Bud-dot</li>
@@ -168,6 +186,7 @@
         setupToggle('.book-tracker', '.book-descr', 'flex');
         setupToggle('.marco', '.aurelio', 'block');
         setupToggle('.mbsync', '.mcp', 'block');
+        setupToggle('.tracker', '.spese', 'block');
     </script>
 </body>
 </html>
