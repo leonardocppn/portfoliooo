@@ -49,7 +49,7 @@
             }
         }
 
-        .book-tracker, .marco, .mbsync, .tracker {
+        .book-tracker, .marco, .mbsync, .tracker, .med {
             cursor: pointer;
         }
     </style>
@@ -59,7 +59,10 @@
     <header class="navbar navbar-static-top bs-docs-nav" id="top" style="border-bottom: 2px solid black; padding-bottom: 0px;">
         <div class="d-flex align-items-baseline" style="width: 100%;">
             <a href="https://leonardocppn.github.io/portfolio/" class="navbar-brand" style="font-weight: bold; margin-bottom: -2px; padding-bottom: 0;">Leonardo Coppini</a>
-            <a href="index.html" title="English" style="font-size: 1.4rem; margin-left: auto; text-decoration: none;">🇬🇧</a>
+            <span style="margin-left: auto; display: flex; gap: 0.5rem; align-items: center;">
+                <a href="index.html" title="English" style="font-size: 1.4rem; text-decoration: none;">🇬🇧</a>
+                <span title="Italiano" style="font-size: 1.4rem; cursor: default; filter: drop-shadow(0 0 0px rgba(0,0,0,0.8)) drop-shadow(0 1px 0 black) drop-shadow(0 -1px 0 black) drop-shadow(1px 0 0 black) drop-shadow(-1px 0 0 black);">🇮🇹</span>
+            </span>
         </div>
     </header>
 
@@ -84,6 +87,31 @@
                 <h4 style="margin-bottom:0px;">Progetti</h4>
                 Di seguito stanno alcuni progetti fatti nel tempo libero:<br><br>
                 -->
+
+
+
+
+
+                <b>med-rag</b> [<a href="https://github.com/leonardocppn/med-rag">Repo</a>]<br>
+                Una pipeline RAG per fare queries su documenti PDF in linguaggio naturale, basata su Claude o su qualsiasi modello locale di Ollama. Progettata per navigare archivi di referti medici personali che coprono anni di storia clinica, è ovviamente adattabile a qualsiasi caso d'uso. Gestisce PDF strutturati (referti di laboratorio con tabelle, layout multicolonna) e documenti narrativi con analisi adattiva del layout.<br>
+                <div class="med" style="font-size:14px">Mostra altro...</div>
+                <div class="rag" style="align-items: center;display: none;gap:20px">
+                    <div style="box-sizing: border-box;text-align:left;">
+                        Funzionalità principali:
+                        <ul style="margin: 5px;">
+                            <li>Parsing adattivo del layout: i parametri vengono derivati dalle metriche del documento stesso, senza soglie hardcoded. Classifica i blocchi in titolo, header, footer e body. Rileva layout multicolonna.</li>
+                            <li>Modalità testo semplice per documenti narrativi come note cliniche e lettere di dimissione (o qualsiasi documento a colonna singola), dove l'analisi del layout non è necessaria.</li>
+                            <li>Embedding multilingua tramite fastembed (ONNX, senza GPU), memorizzati in ChromaDB.</li>
+                            <li>Re-ranking con cross-encoder opzionale per un recupero più preciso.</li>
+                            <li>Corpus multi-documento: indicizza più PDF e interrogali insieme.</li>
+                            <li>Chat multi-turno e riepiloghi strutturati dei documenti.</li>
+                            <li>Sincronizzazione incrementale: reindicizza solo i file nuovi, con deduplicazione per contenuto.</li>
+                            <li>Ricerca per parole chiave con BM25, senza coinvolgere un LLM.</li>
+                            <li>Doppio backend LLM: Claude (API Anthropic) o qualsiasi modello locale tramite Ollama.</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr style="border: 0; border-top: 1px solid #a0a0a0;">
                 <b>mbsync mcp server</b> [<a href="https://github.com/leonardocppn/mbsync-mcp">Repo</a>]<br>
                 Un server Model Context Protocol (MCP) che consente di sincronizzare ed elaborare localmente la propria casella di posta con l'aiuto di un LLM. Nasce dalle ceneri di un progetto (che potrei riprendere in futuro) per gestire Thunderbird <img src="imgs/tndrb.ico" style="width: 25px; border-radius:10%; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3); vertical-align: middle;"> ed è stato convertito per funzionare con mbsync.<br>
                 <div class="mbsync" style="font-size:14px">Mostra di più...</div>
@@ -159,6 +187,7 @@
                 <b>Link ai progetti:</b><br>
                 <nav>
                     <ul class="list-unstyled ps-md-3">
+                        <li><a href="https://github.com/leonardocppn/med-rag">med-rag</a></li>
                         <li><a href="https://github.com/leonardocppn/mbsync-mcp">mbsync mcp</a></li>
                         <li><a href="https://github.com/leonardocppn/expenses-tracker-pwa">Tracker spese</a></li>
                         <li><a href="https://leonardocppn.github.io/book-club-tracker/">Book club tracker</a></li>
@@ -187,6 +216,7 @@
         setupToggle('.book-tracker', '.book-descr', 'flex');
         setupToggle('.marco', '.aurelio', 'block');
         setupToggle('.mbsync', '.mcp', 'block');
+        setupToggle('.med', '.rag', 'block');
         setupToggle('.tracker', '.spese', 'block');
     </script>
 </body>

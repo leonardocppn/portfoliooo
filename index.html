@@ -49,7 +49,7 @@
             }
         }
 
-        .book-tracker, .marco, .mbsync, .tracker {
+        .book-tracker, .marco, .mbsync, .tracker, .med {
             cursor: pointer;
         }
     </style>
@@ -59,7 +59,10 @@
     <header class="navbar navbar-static-top bs-docs-nav" id="top" style="border-bottom: 2px solid black; padding-bottom: 0px;">
         <div class="d-flex align-items-baseline" style="width: 100%;">
             <a href="https://leonardocppn.github.io/portfolio/" class="navbar-brand" style="font-weight: bold; margin-bottom: -2px; padding-bottom: 0;">Leonardo Coppini</a>
-            <a href="indexita.html" title="Italiano" style="font-size: 1.4rem; margin-left: auto; text-decoration: none;">🇮🇹</a>
+            <span style="margin-left: auto; display: flex; gap: 0.5rem; align-items: center;">
+                <span title="English" style="font-size: 1.4rem; cursor: default; filter: drop-shadow(0 0 0px rgba(0,0,0,0.8)) drop-shadow(0 1px 0 black) drop-shadow(0 -1px 0 black) drop-shadow(1px 0 0 black) drop-shadow(-1px 0 0 black);">🇬🇧</span>
+                <a href="indexita.html" title="Italiano" style="font-size: 1.4rem; text-decoration: none;">🇮🇹</a>
+            </span>
         </div>
     </header>
 
@@ -84,6 +87,31 @@
                 <h4 style="margin-bottom:0px;">Progetti</h4>
                 Di seguito stanno alcuni progetti fatti nel tempo libero:<br><br>
                 -->
+
+
+
+
+
+                <b>med-rag</b> [<a href="https://github.com/leonardocppn/med-rag">Repo</a>]<br>
+                A RAG pipeline for querying PDF documents in natural language, powered by Claude or any local model via Ollama. Designed as a tool to navigate archives of personal medical reports spanning years, but adaptable to any use case. Handles structured PDFs (lab reports, multi-column layouts) and plain narrative documents with adaptive layout analysis.<br>
+                <div class="med" style="font-size:14px">Show more...</div>
+                <div class="rag" style="align-items: center;display: none;gap:20px">
+                    <div style="box-sizing: border-box;text-align:left;">
+                        Main features:
+                        <ul style="margin: 5px;">
+                            <li>Adaptive layout parsing: parameters derived from each document's own metrics with no hardcoded thresholds. Classifies blocks as title, header, footer, or body. Detects multi-column layouts.</li>
+                            <li>Plain-text mode for narrative documents such as clinical notes, discharge letters (or any kind of single-column text document), where layout analysis is unnecessary.</li>
+                            <li>Multilingual embeddings via fastembed (ONNX, no GPU required), stored in ChromaDB.</li>
+                            <li>Optional cross-encoder re-ranking for more precise retrieval.</li>
+                            <li>Multi-document corpus: index multiple PDFs and query them together.</li>
+                            <li>Multi-turn chat and structured document summaries.</li>
+                            <li>Incremental sync: re-indexes only new files, with deduplication by content.</li>
+                            <li>BM25 keyword search for instant lookup (without an LLM).</li>
+                            <li>Dual LLM backend: Claude (Anthropic API) or any local model via Ollama.</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr style="border: 0; border-top: 1px solid #a0a0a0;">
                 <b>mbsync mcp server</b> [<a href="https://github.com/leonardocppn/mbsync-mcp">Repo</a>]<br>
                 A Model Context Protocol (MCP) server that allows you to locally sync and process your mailbox with the help of an LLM. It was born from the ashes of a project (which I might resume in the future) to manage Thunderbird <img src="imgs/tndrb.ico" style="width: 25px; border-radius:10%; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3); vertical-align: middle;"> and was converted to work with mbsync.<br>
                 <div class="mbsync" style="font-size:14px">Show more...</div>
@@ -159,6 +187,7 @@
                 <b>Project links:</b><br>
                 <nav>
                     <ul class="list-unstyled ps-md-3">
+                        <li><a href="https://github.com/leonardocppn/med-rag">med-rag</a></li>
                         <li><a href="https://github.com/leonardocppn/mbsync-mcp">mbsync mcp</a></li>
                         <li><a href="https://github.com/leonardocppn/expenses-tracker-pwa">Expense Tracker</a></li>
                         <li><a href="https://leonardocppn.github.io/book-club-tracker/">Book club tracker</a></li>
@@ -187,6 +216,7 @@
         setupToggle('.book-tracker', '.book-descr', 'flex');
         setupToggle('.marco', '.aurelio', 'block');
         setupToggle('.mbsync', '.mcp', 'block');
+        setupToggle('.med', '.rag', 'block');
         setupToggle('.tracker', '.spese', 'block');
     </script>
 </body>
