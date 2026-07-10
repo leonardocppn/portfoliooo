@@ -49,8 +49,18 @@
             }
         }
 
-        .book-tracker, .marco, .mbsync, .tracker, .med {
+        .book-tracker, .marco, .mbsync, .tracker, .med, .arxiv {
             cursor: pointer;
+        }
+
+        .gh-profile:link,
+        .gh-profile:visited,
+        .gh-profile:hover,
+        .gh-profile:active {
+        font-weight: normal;
+            color: #551A8B;
+            text-decoration: underline;
+            text-decoration-thickness: 2px !important;
         }
     </style>
     <title>Portfolio</title>
@@ -74,8 +84,8 @@
                         <img src="assets/oktobercat.png" style="width: 105px;">
                     </div>
                     <div>
-                        <p style="margin-top: 0px;margin-bottom: 2px;">
-                            <a href="https://github.com/leonardocppn" style="font-weight: bold; font-size: 1rem;">≈[ Link al profilo github ]≈</a>
+                        <p style="margin-top: 0px;margin-bottom: 2px; font-weight: bold; font-size: 1rem; color: #551A8B;">
+                            ⟅⟅<a class="gh-profile" style="margin-left:-2px; margin-right:-2px;" href="https://github.com/leonardocppn">  Link al profilo github  </a>⟆⟆
                         </p>
                         <p style="margin-top: 0px;margin-bottom: 2px;">
                             📍 Pisa/Firenze |🐧 Fedora
@@ -131,6 +141,28 @@
                             <li>Cleanup batch: cancellare/archiviare email multiple in un solo comando.</li>
                             <li>Daily briefing: riepilogo inbox con mittenti principali.</li>
                         </ul>
+                    </div>
+                </div>
+                <br>
+                <b>arXiv-pulse</b> [<a href="https://github.com/leonardocppn/arxiv-pulse">Repo</a>]<br>
+                <hr style="border: 0; border-top: 1px solid #000;margin-top: 0px;margin-bottom: 3px;">
+                Un progetto di data analysis end-to-end su dati reali, che ripercorre 30 anni di pubblicazioni su arXiv (1995–2025): il contrasto tra i campi storici della fisica e l'esplosione dell'informatica e dell'AI. Copre l'intera pipeline: raccolta dall'API pubblica di arXiv, pulizia, analisi esplorativa, visualizzazione e una lettura narrata dei risultati.<br>
+                <div class="arxiv" style="font-size:14px">Mostra di più...</div>
+                <div class="pulse" style="align-items: center;display: none;gap:20px">
+                    <div style="box-sizing: border-box; text-align: center;">
+                            <img src="imgs/papers.png" style="width: 100%; max-width: 680px; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);">
+                    </div>
+                    <div style="box-sizing: border-box;text-align:left;">
+                        Risultati principali:
+                        <ul style="margin: 5px;">
+                            <li>Il sorpasso di CS/AI sulla fisica è avvenuto intorno al 2018: la quota di CS/AI sul totale (fisica + CS/AI) è passata dal 2,8% del 1995 al 78,5% del 2025.</li>
+                            <li>Non è la fisica a calare, ma CS/AI a esplodere sopra una fisica che continua comunque a crescere — fisica: +5,4%/anno, CS/AI: +23,9%/anno (CAGR).</li>
+                            <li>Il motore è il machine learning: solo cs.LG è cresciuto ×18,5 in un decennio (2.490 → 46.005 paper/anno, 2015 → 2025).</li>
+                            <li>Nel campione recente, le collaborazioni CS/AI hanno una mediana di 4 autori per paper contro i 3 della fisica teorica.</li>
+                        </ul>
+                        I conteggi reali sono costruiti dall'API pubblica di arXiv con ~310 query leggere (leggendo il campo totalResults dell'API invece di scaricare milioni di record), su 5 categorie stabili di fisica e 5 di CS/AI. L'analisi completa e narrata vive in un notebook Jupyter.<br>
+                        <br>
+                        Stack: Python · pandas · numpy · matplotlib · seaborn · SQL (SQLite) · Jupyter.<br>
                     </div>
                 </div>
                 <br>
@@ -190,11 +222,12 @@
             </main>
 
             <aside class="col-12 col-md-3 mt-4 mt-md-0" style="text-align: right; padding-top:30px">
-                <b>Link ai progetti:</b><br>
+                <b>Link alle repo:</b><br>
                 <nav>
                     <ul class="list-unstyled ps-md-3" style="margin-top:5px">
                         <li><a href="https://github.com/leonardocppn/med-rag">med-rag</a></li>
                         <li><a href="https://github.com/leonardocppn/mbsync-mcp">mbsync mcp</a></li>
+                        <li><a href="https://github.com/leonardocppn/arxiv-pulse">arXiv-pulse</a></li>
                         <li><a href="https://github.com/leonardocppn/expenses-tracker-pwa">Tracker spese</a></li>
                         <li><a href="https://leonardocppn.github.io/book-club-tracker/">Book club tracker</a></li>
                         <li><a href="https://leonardocppn.github.io/stoic-search/">Ricerca stoica</a></li>
@@ -224,6 +257,7 @@
         setupToggle('.mbsync', '.mcp', 'block');
         setupToggle('.med', '.rag', 'block');
         setupToggle('.tracker', '.spese', 'block');
+        setupToggle('.arxiv', '.pulse', 'block');
     </script>
 </body>
 </html>
