@@ -69,7 +69,7 @@ header.site-header {
     position: absolute;
     left: 0;
     bottom: 0;
-    transform: translateY(50%);
+    transform: translateY(51%);
     width: 100px;
     height: 28px;
     display: block;
@@ -238,8 +238,8 @@ header.site-header {
         max-width: 50%;
     }
     .col-md-9 {
-        flex: 0 0 80%;
-        max-width: 80%;
+        flex: 0 0 75%;
+        max-width: 75%;
     }
 }
 
